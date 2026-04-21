@@ -1,0 +1,146 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
+    --primary: 350 78% 24%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 20 18% 95%;
+    --secondary-foreground: 0 0% 10%;
+    --muted: 20 18% 95%;
+    --muted-foreground: 0 0% 33%;
+    --accent: 350 78% 24%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 25 14% 86%;
+    --input: 25 14% 86%;
+    --ring: 350 78% 24%;
+    --radius: 0px;
+
+    /* Custom tokens */
+    --wine: 350 78% 24%;
+    --wine-medium: 348 69% 33%;
+    --text-black: 0 0% 10%;
+    --text-gray: 0 0% 33%;
+    --cream: 20 18% 95%;
+    --border-light: 25 14% 86%;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+    scroll-behavior: smooth;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@keyframes ball {
+  from { transform: rotate(0) translateY(-6.5em); }
+  50% { transform: rotate(180deg) translateY(-6em); }
+  to { transform: rotate(360deg) translateY(-6.5em); }
+}
+
+@keyframes ballInnerShadow {
+  from { transform: rotate(0); }
+  to { transform: rotate(-360deg); }
+}
+
+@keyframes ballOuterShadow {
+  from { transform: rotate(20deg); }
+  to { transform: rotate(-340deg); }
+}
+
+@keyframes ballTexture {
+  from { transform: translateX(0); }
+  to { transform: translateX(50%); }
+}
+
+@keyframes trackCover {
+  from { transform: rotate(0); }
+  to { transform: rotate(360deg); }
+}
+
+@layer components {
+  .section-padding {
+    @apply py-[100px] px-6 md:px-12 lg:px-20;
+  }
+  .label-text {
+    font-family: 'Raleway', sans-serif;
+    @apply text-[9px] uppercase tracking-[5px] font-normal;
+    color: hsl(var(--wine-medium));
+  }
+  .heading-display {
+    font-family: 'Playfair Display', serif;
+    @apply text-4xl md:text-[48px] leading-tight;
+    color: hsl(var(--text-black));
+  }
+  .wine-line {
+    @apply w-12 h-[1.5px] my-7;
+    background: hsl(var(--wine));
+  }
+  .body-text {
+    font-family: 'Raleway', sans-serif;
+    @apply text-[14px] md:text-[15px] font-light leading-[1.9];
+    color: hsl(var(--text-gray));
+  }
+  .btn-primary {
+    font-family: 'Raleway', sans-serif;
+    @apply text-[11px] uppercase tracking-[2px] font-medium px-8 py-[15px] transition-colors duration-300 rounded-none;
+    background: hsl(var(--wine));
+    color: #FFFFFF;
+  }
+  .btn-primary:hover {
+    background: hsl(var(--wine-medium));
+  }
+  .btn-outline {
+    font-family: 'Raleway', sans-serif;
+    @apply text-[11px] uppercase tracking-[2px] font-medium px-8 py-[15px] transition-all duration-300 rounded-none bg-transparent;
+    border: 1px solid hsl(var(--wine));
+    color: hsl(var(--wine));
+  }
+  .btn-outline:hover {
+    background: hsl(var(--wine));
+    color: #FFFFFF;
+  }
+  .nav-link {
+    font-family: 'Raleway', sans-serif;
+    @apply text-[11px] uppercase tracking-[3px] font-normal relative transition-colors duration-300;
+    color: hsl(var(--text-gray));
+  }
+  .nav-link::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-[1px] transition-all duration-300;
+    background: hsl(var(--wine));
+  }
+  .nav-link:hover {
+    color: hsl(var(--wine));
+  }
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+}
